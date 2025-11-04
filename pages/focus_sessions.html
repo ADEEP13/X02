@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Sessions - DeepSync</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fdeepsync5353back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-primary mr-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 12C8 8.68629 10.6863 6 14 6H18C21.3137 6 24 8.68629 24 12V20C24 23.3137 21.3137 26 18 26H14C10.6863 26 8 23.3137 8 20V12Z" fill="currentColor" opacity="0.2"/>
+                        <path d="M16 8C12.6863 8 10 10.6863 10 14V18C10 21.3137 12.6863 24 16 24C19.3137 24 22 21.3137 22 18V14C22 10.6863 19.3137 8 16 8Z" fill="currentColor"/>
+                        <path d="M14 12H18M14 16H18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-xl font-bold text-text-primary">DeepSync</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+                    <a href="analytics.html" class="text-text-secondary hover:text-primary transition-colors">Analytics</a>
+                    <a href="focus_sessions.html" class="text-primary font-medium border-b-2 border-primary pb-1">Focus</a>
+                    <a href="schedule.html" class="text-text-secondary hover:text-primary transition-colors">Schedule</a>
+                    <a href="settings.html" class="text-text-secondary hover:text-primary transition-colors">Settings</a>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"></path>
+                        </svg>
+                    </button>
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-medium">JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-text-primary mb-2">Focus Sessions</h1>
+            <p class="text-text-secondary">AI-powered work planning and distraction management for optimal productivity</p>
+        </div>
+
+        <!-- Active Session Banner -->
+        <div id="activeSessionBanner" class="hidden mb-8">
+            <div class="card bg-gradient-to-br from-primary-50 to-primary-100 border-primary-200">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center animate-pulse">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-text-primary">Deep Work Session Active</h3>
+                            <p class="text-text-secondary">Creative Writing • 37 minutes remaining</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                            <p class="text-2xl font-bold text-primary">23:00</p>
+                            <p class="text-sm text-text-secondary">92% focused</p>
+                        </div>
+                        <button class="btn-secondary">Pause</button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-text-secondary hover:bg-gray-50 transition-colors">End Session</button>
+                    </div>
+                </div>
+                <!-- Progress Bar -->
+                <div class="mt-4">
+                    <div class="w-full bg-primary-200 rounded-full h-2">
+                        <div class="bg-primary h-2 rounded-full transition-all duration-1000" style="width: 62%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Session Planning -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- AI Session Planner -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-xl font-semibold text-text-primary">AI Session Planner</h2>
+                        </div>
+                        <button class="text-accent hover:text-accent-700 text-sm font-medium">Optimize Schedule</button>
+                    </div>
+
+                    <!-- AI Recommendations -->
+                    <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-lg p-4 mb-6">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary mb-1">Optimal Focus Window Detected</p>
+                                <p class="text-sm text-text-secondary">Based on your patterns, you're most productive between 10:00-11:30 AM. Consider scheduling your deep work session now for maximum effectiveness.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Session Type Selection -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-text-primary mb-3">Select Session Type</label>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button class="session-type-btn active p-4 border-2 border-primary bg-primary-50 rounded-lg text-left transition-all hover:border-primary-600">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Deep Focus</p>
+                                        <p class="text-xs text-text-secondary">90-120 min</p>
+                                    </div>
+                                </div>
+                            </button>
+                            <button class="session-type-btn p-4 border-2 border-gray-200 rounded-lg text-left transition-all hover:border-secondary">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Creative Work</p>
+                                        <p class="text-xs text-text-secondary">60-90 min</p>
+                                    </div>
+                                </div>
+                            </button>
+                            <button class="session-type-btn p-4 border-2 border-gray-200 rounded-lg text-left transition-all hover:border-orange-500">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Admin Tasks</p>
+                                        <p class="text-xs text-text-secondary">30-60 min</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Session Configuration -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Session Duration</label>
+                            <select class="input-field">
+                                <option>90 minutes (Recommended)</option>
+                                <option>60 minutes</option>
+                                <option>120 minutes</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Break Intervals</label>
+                            <select class="input-field">
+                                <option>Every 25 minutes (Pomodoro)</option>
+                                <option>Every 45 minutes</option>
+                                <option>No breaks</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Task Input -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-text-primary mb-2">What will you work on?</label>
+                        <input type="text" class="input-field" placeholder="e.g., Write quarterly report, Design new feature, Study for exam">
+                    </div>
+
+                    <!-- Start Session Button -->
+                    <button class="btn-primary w-full text-lg py-4">
+                        <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9-4V8a3 3 0 016 0v2M7 16a3 3 0 106 0v-2"></path>
+                        </svg>
+                        Start Focus Session
+                    </button>
+                </div>
+
+                <!-- Session Templates -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Session Templates</h2>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">Create Template</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Template 1 -->
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors cursor-pointer">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-medium text-text-primary">Morning Deep Work</h3>
+                                <span class="text-xs bg-primary-100 text-primary px-2 py-1 rounded-full">Most Used</span>
+                            </div>
+                            <p class="text-sm text-text-secondary mb-3">90 min • Pomodoro breaks • High restriction</p>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 bg-primary rounded-full"></div>
+                                <span class="text-xs text-text-secondary">87% avg focus score</span>
+                            </div>
+                        </div>
+
+                        <!-- Template 2 -->
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-secondary transition-colors cursor-pointer">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-medium text-text-primary">Creative Sprint</h3>
+                                <span class="text-xs bg-secondary-100 text-secondary px-2 py-1 rounded-full">New</span>
+                            </div>
+                            <p class="text-sm text-text-secondary mb-3">60 min • No breaks • Medium restriction</p>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 bg-secondary rounded-full"></div>
+                                <span class="text-xs text-text-secondary">92% avg focus score</span>
+                            </div>
+                        </div>
+
+                        <!-- Template 3 -->
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-accent transition-colors cursor-pointer">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-medium text-text-primary">Study Session</h3>
+                                <span class="text-xs bg-gray-100 text-text-secondary px-2 py-1 rounded-full">Custom</span>
+                            </div>
+                            <p class="text-sm text-text-secondary mb-3">120 min • 45 min breaks • Full restriction</p>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 bg-accent rounded-full"></div>
+                                <span class="text-xs text-text-secondary">94% avg focus score</span>
+                            </div>
+                        </div>
+
+                        <!-- Template 4 -->
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-orange-500 transition-colors cursor-pointer">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-medium text-text-primary">Admin Batch</h3>
+                                <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full">Quick</span>
+                            </div>
+                            <p class="text-sm text-text-secondary mb-3">45 min • 15 min breaks • Light restriction</p>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-4 h-4 bg-orange-500 rounded-full"></div>
+                                <span class="text-xs text-text-secondary">78% avg focus score</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Controls & Stats -->
+            <div class="space-y-8">
+                <!-- Focus Lock Controls -->
+                <div class="card">
+                    <h2 class="text-xl font-semibold text-text-primary mb-6">Focus Lock Controls</h2>
+                    
+                    <!-- Restriction Level -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-text-primary mb-3">Restriction Level</label>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="restriction" class="text-primary focus:ring-primary" checked>
+                                <div>
+                                    <p class="font-medium text-text-primary">Gentle Reminders</p>
+                                    <p class="text-xs text-text-secondary">Notifications only, no blocking</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="restriction" class="text-primary focus:ring-primary">
+                                <div>
+                                    <p class="font-medium text-text-primary">Medium Restriction</p>
+                                    <p class="text-xs text-text-secondary">Block distracting apps with 30s delay</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="restriction" class="text-primary focus:ring-primary">
+                                <div>
+                                    <p class="font-medium text-text-primary">Full Lock</p>
+                                    <p class="text-xs text-text-secondary">Complete app blocking during session</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Blocked Apps -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-text-primary mb-3">Blocked Applications</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1629612459784-38f4ad4bd3c4" 
+                                         alt="Social media app icon" class="w-6 h-6 rounded" 
+                                         onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    <span class="text-sm text-text-primary">Social Media</span>
+                                </div>
+                                <button class="text-error hover:text-red-700">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1577303883820-a7559abc92df" 
+                                         alt="Gaming app icon" class="w-6 h-6 rounded" 
+                                         onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    <span class="text-sm text-text-primary">Gaming</span>
+                                </div>
+                                <button class="text-error hover:text-red-700">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1663153206320-39cb87342394" 
+                                         alt="Entertainment app icon" class="w-6 h-6 rounded" 
+                                         onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    <span class="text-sm text-text-primary">Entertainment</span>
+                                </div>
+                                <button class="text-error hover:text-red-700">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="w-full mt-3 px-4 py-2 border border-gray-200 rounded-lg text-text-secondary hover:bg-gray-50 transition-colors text-sm">
+                            + Add Application
+                        </button>
+                    </div>
+
+                    <!-- Emergency Override -->
+                    <div class="p-4 bg-warning-50 border border-warning-200 rounded-lg">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <svg class="w-5 h-5 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            <p class="font-medium text-warning">Emergency Override</p>
+                        </div>
+                        <p class="text-sm text-text-secondary mb-3">Break focus lock for urgent situations. Requires confirmation.</p>
+                        <button class="w-full px-4 py-2 bg-warning text-white rounded-lg hover:bg-amber-600 transition-colors text-sm">
+                            Request Override
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Today's Focus Stats -->
+                <div class="card">
+                    <h2 class="text-xl font-semibold text-text-primary mb-6">Today's Focus Stats</h2>
+                    
+                    <div class="space-y-4">
+                        <!-- Sessions Completed -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-text-primary">Sessions Completed</span>
+                            </div>
+                            <span class="font-semibold text-text-primary">3 / 5</span>
+                        </div>
+
+                        <!-- Focus Time -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-text-primary">Focus Time</span>
+                            </div>
+                            <span class="font-semibold text-text-primary">4h 23m</span>
+                        </div>
+
+                        <!-- Average Focus Score -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-text-primary">Avg Focus Score</span>
+                            </div>
+                            <span class="font-semibold text-accent">89%</span>
+                        </div>
+
+                        <!-- Distractions Blocked -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-error rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-text-primary">Distractions Blocked</span>
+                            </div>
+                            <span class="font-semibold text-error">27</span>
+                        </div>
+                    </div>
+
+                    <!-- Progress Visualization -->
+                    <div class="mt-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-text-secondary">Daily Goal Progress</span>
+                            <span class="text-text-primary font-medium">87%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-primary to-secondary h-3 rounded-full transition-all duration-1000" style="width: 87%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Break Activities -->
+                <div class="card">
+                    <h2 class="text-xl font-semibold text-text-primary mb-6">Suggested Break Activities</h2>
+                    
+                    <div class="space-y-3">
+                        <!-- Breathing Exercise -->
+                        <div class="flex items-center justify-between p-3 bg-primary-50 rounded-lg border border-primary-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-text-primary">Breathing Exercise</p>
+                                    <p class="text-xs text-text-secondary">5 minutes • Reduce stress</p>
+                                </div>
+                            </div>
+                            <button class="text-primary hover:text-primary-700 text-sm font-medium">Start</button>
+                        </div>
+
+                        <!-- Quick Walk -->
+                        <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg border border-secondary-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-text-primary">Quick Walk</p>
+                                    <p class="text-xs text-text-secondary">10 minutes • Boost energy</p>
+                                </div>
+                            </div>
+                            <button class="text-secondary hover:text-emerald-700 text-sm font-medium">Start</button>
+                        </div>
+
+                        <!-- Eye Rest -->
+                        <div class="flex items-center justify-between p-3 bg-accent-50 rounded-lg border border-accent-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-text-primary">Eye Rest Exercise</p>
+                                    <p class="text-xs text-text-secondary">3 minutes • Reduce strain</p>
+                                </div>
+                            </div>
+                            <button class="text-accent hover:text-violet-700 text-sm font-medium">Start</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar Integration -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-text-primary">Calendar Integration</h2>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">Connect</button>
+                    </div>
+                    
+                    <div class="text-center py-6">
+                        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-text-secondary text-sm mb-3">Connect your calendar to automatically schedule focus sessions</p>
+                        <button class="btn-secondary text-sm">Connect Google Calendar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-gray-200 px-4 py-2">
+        <div class="flex justify-around">
+            <a href="dashboard.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                <span class="text-xs mt-1">Dashboard</span>
+            </a>
+            <a href="analytics.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                <span class="text-xs mt-1">Analytics</span>
+            </a>
+            <a href="focus_sessions.html" class="flex flex-col items-center py-2 text-primary">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-xs mt-1">Focus</span>
+            </a>
+            <a href="schedule.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <span class="text-xs mt-1">Schedule</span>
+            </a>
+            <a href="settings.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="text-xs mt-1">Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+    // Focus Session Manager
+    class FocusSessionManager {
+        constructor() {
+            this.isSessionActive = false;
+            this.currentSession = null;
+            this.sessionTimer = null;
+            this.breakTimer = null;
+            this.sessionStartTime = null;
+            this.totalFocusTime = 0;
+            this.distractionsBlocked = 0;
+            this.sessionsCompleted = 0;
+            this.focusScores = [];
+            
+            this.init();
+        }
+
+        init() {
+            this.loadUserData();
+            this.bindEventListeners();
+            this.updateUI();
+        }
+
+        loadUserData() {
+            const userData = JSON.parse(localStorage.getItem('focusSessionData') || '{}');
+            this.totalFocusTime = userData.totalFocusTime || 0;
+            this.distractionsBlocked = userData.distractionsBlocked || 27;
+            this.sessionsCompleted = userData.sessionsCompleted || 3;
+            this.focusScores = userData.focusScores || [89, 92, 87, 94, 78];
+        }
+
+        saveUserData() {
+            const userData = {
+                totalFocusTime: this.totalFocusTime,
+                distractionsBlocked: this.distractionsBlocked,
+                sessionsCompleted: this.sessionsCompleted,
+                focusScores: this.focusScores
+            };
+            localStorage.setItem('focusSessionData', JSON.stringify(userData));
+        }
+
+        bindEventListeners() {
+            // Start session button
+            const startBtn = document.querySelector('.btn-primary');
+            if (startBtn) {
+                startBtn.addEventListener('click', () => this.startSession());
+            }
+
+            // Session type buttons
+            document.querySelectorAll('.session-type-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => this.selectSessionType(e.target.closest('.session-type-btn')));
+            });
+
+            // Template cards
+            document.querySelectorAll('.card .grid .cursor-pointer').forEach(card => {
+                card.addEventListener('click', () => this.loadTemplate(card));
+            });
+
+            // Break activity buttons
+            document.querySelectorAll('[class*="bg-"][class*="-50"] button').forEach(btn => {
+                if (btn.textContent === 'Start') {
+                    btn.addEventListener('click', (e) => this.startBreakActivity(e.target.closest('div')));
+                }
+            });
+
+            // Emergency override
+            const overrideBtn = document.querySelector('.bg-warning');
+            if (overrideBtn) {
+                overrideBtn.addEventListener('click', () => this.requestEmergencyOverride());
+            }
+
+            // Add blocked app
+            const addAppBtn = document.querySelector('button[class*="border-gray-200"]');
+            if (addAppBtn && addAppBtn.textContent.includes('Add Application')) {
+                addAppBtn.addEventListener('click', () => this.addBlockedApp());
+            }
+
+            // Remove blocked apps
+            document.querySelectorAll('.text-error').forEach(btn => {
+                btn.addEventListener('click', (e) => this.removeBlockedApp(e.target.closest('.flex')));
+            });
+        }
+
+        selectSessionType(button) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.session-type-btn').forEach(b => {
+                b.classList.remove('active', 'border-primary', 'bg-primary-50');
+                b.classList.add('border-gray-200');
+            });
+            
+            // Add active class to selected button
+            button.classList.add('active', 'border-primary', 'bg-primary-50');
+            button.classList.remove('border-gray-200');
+
+            // Update duration based on session type
+            const sessionName = button.querySelector('.font-medium').textContent;
+            const durationSelect = document.querySelector('select');
+            
+            if (sessionName === 'Deep Focus') {
+                durationSelect.value = '90 minutes (Recommended)';
+            } else if (sessionName === 'Creative Work') {
+                durationSelect.value = '60 minutes';
+            } else if (sessionName === 'Admin Tasks') {
+                durationSelect.value = 'Custom';
+            }
+        }
+
+        loadTemplate(templateCard) {
+            const templateName = templateCard.querySelector('h3').textContent;
+            const templateDetails = templateCard.querySelector('p').textContent;
+            
+            // Parse template details
+            const duration = templateDetails.match(/(\d+)\s*min/)?.[1] || '90';
+            const breakType = templateDetails.includes('Pomodoro') ? 'Every 25 minutes (Pomodoro)' :
+                            templateDetails.includes('45 min') ? 'Every 45 minutes' :
+                            templateDetails.includes('15 min') ? 'Every 45 minutes' : 'No breaks';
+            
+            // Update form fields
+            document.querySelector('select').value = `${duration} minutes`;
+            document.querySelectorAll('select')[1].value = breakType;
+            document.querySelector('input[type="text"]').value = templateName;
+
+            // Show visual feedback
+            templateCard.style.transform = 'scale(0.98)';
+            setTimeout(() => templateCard.style.transform = 'scale(1)', 200);
+        }
+
+        startSession() {
+            if (this.isSessionActive) return;
+
+            const sessionType = document.querySelector('.session-type-btn.active .font-medium').textContent;
+            const duration = document.querySelector('select').value;
+            const breakInterval = document.querySelectorAll('select')[1].value;
+            const task = document.querySelector('input[type="text"]').value || 'Focus work';
+            const restrictionLevel = document.querySelector('input[name="restriction"]:checked').nextElementSibling.querySelector('.font-medium').textContent;
+
+            // Parse duration
+            let durationMinutes = 90; // default
+            if (duration.includes('60')) durationMinutes = 60;
+            else if (duration.includes('120')) durationMinutes = 120;
+            else if (duration.includes('90')) durationMinutes = 90;
+
+            this.currentSession = {
+                type: sessionType,
+                task: task,
+                duration: durationMinutes * 60, // convert to seconds
+                breakInterval: breakInterval,
+                restrictionLevel: restrictionLevel,
+                startTime: Date.now(),
+                elapsedTime: 0,
+                isPaused: false,
+                focusScore: 100
+            };
+
+            this.isSessionActive = true;
+            this.sessionStartTime = Date.now();
+            
+            this.showActiveSession();
+            this.startTimer();
+            this.simulateFocusTracking();
+            
+            // Update start button
+            const startBtn = document.querySelector('.btn-primary');
+            startBtn.innerHTML = `
+                <svg class="w-5 h-5 mr-2 inline animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Session Active
+            `;
+            startBtn.disabled = true;
+            startBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        }
+
+        showActiveSession() {
+            const banner = document.getElementById('activeSessionBanner');
+            banner.classList.remove('hidden');
+            
+            // Update session details in banner
+            const sessionTitle = banner.querySelector('h3');
+            const sessionSubtitle = banner.querySelector('p');
+            
+            sessionTitle.textContent = `${this.currentSession.type} Session Active`;
+            sessionSubtitle.textContent = `${this.currentSession.task} • ${Math.floor(this.currentSession.duration / 60)} minutes remaining`;
+            
+            // Set up pause and end button event listeners
+            const pauseBtn = banner.querySelector('.btn-secondary');
+            const endBtn = banner.querySelector('button:last-child');
+            
+            if (pauseBtn) {
+                // Remove any existing event listeners
+                pauseBtn.replaceWith(pauseBtn.cloneNode(true));
+                const newPauseBtn = banner.querySelector('.btn-secondary');
+                newPauseBtn.addEventListener('click', () => this.pauseSession());
+            }
+            
+            if (endBtn && endBtn.textContent.includes('End')) {
+                // Remove any existing event listeners
+                endBtn.replaceWith(endBtn.cloneNode(true));
+                const newEndBtn = banner.querySelector('button:last-child');
+                newEndBtn.addEventListener('click', () => this.endSession());
+            }
+
+            // Initialize the timer display immediately
+            this.updateTimerDisplay();
+        }
+
+        hideActiveSession() {
+            const banner = document.getElementById('activeSessionBanner');
+            banner.classList.add('hidden');
+            
+            // Reset start button
+            const startBtn = document.querySelector('.btn-primary');
+            startBtn.innerHTML = `
+                <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9-4V8a3 3 0 016 0v2M7 16a3 3 0 106 0v-2"></path>
+                </svg>
+                Start Focus Session
+            `;
+            startBtn.disabled = false;
+            startBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        startTimer() {
+            // Clear any existing timer
+            if (this.sessionTimer) {
+                clearInterval(this.sessionTimer);
+            }
+            
+            this.sessionTimer = setInterval(() => {
+                if (!this.currentSession.isPaused) {
+                    this.currentSession.elapsedTime += 1;
+                    this.updateTimerDisplay();
+                    this.updateProgressBar();
+                    
+                    // Check if session is complete
+                    if (this.currentSession.elapsedTime >= this.currentSession.duration) {
+                        this.completeSession();
+                    }
+                }
+            }, 1000);
+        }
+
+        updateTimerDisplay() {
+            if (!this.currentSession) return;
+            
+            const remainingSeconds = this.currentSession.duration - this.currentSession.elapsedTime;
+            const minutes = Math.floor(remainingSeconds / 60);
+            const seconds = remainingSeconds % 60;
+            
+            // Update the timer display in the active session banner
+            const timerDisplay = document.querySelector('#activeSessionBanner .text-2xl.font-bold.text-primary');
+            if (timerDisplay) {
+                timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            // Update subtitle with remaining time
+            const subtitle = document.querySelector('#activeSessionBanner p');
+            if (subtitle) {
+                const remainingMinutes = Math.ceil(remainingSeconds / 60);
+                subtitle.textContent = `${this.currentSession.task} • ${remainingMinutes} minute${remainingMinutes !== 1 ? 's' : ''} remaining`;
+            }
+        }
+
+        updateProgressBar() {
+            if (!this.currentSession) return;
+            
+            const progress = (this.currentSession.elapsedTime / this.currentSession.duration) * 100;
+            const progressBar = document.querySelector('#activeSessionBanner .bg-primary');
+            if (progressBar) {
+                progressBar.style.width = `${Math.min(100, progress)}%`;
+            }
+        }
+
+        pauseSession() {
+            if (!this.isSessionActive) return;
+            
+            this.currentSession.isPaused = !this.currentSession.isPaused;
+            const pauseBtn = document.querySelector('#activeSessionBanner .btn-secondary');
+            
+            if (this.currentSession.isPaused) {
+                pauseBtn.textContent = 'Resume';
+                pauseBtn.classList.add('bg-secondary', 'text-white');
+                // Add paused indicator to timer
+                const timerDisplay = document.querySelector('#activeSessionBanner .text-2xl');
+                if (timerDisplay) {
+                    timerDisplay.classList.add('opacity-50');
+                }
+            } else {
+                pauseBtn.textContent = 'Pause';
+                pauseBtn.classList.remove('bg-secondary', 'text-white');
+                // Remove paused indicator
+                const timerDisplay = document.querySelector('#activeSessionBanner .text-2xl');
+                if (timerDisplay) {
+                    timerDisplay.classList.remove('opacity-50');
+                }
+            }
+        }
+
+        endSession() {
+            if (!this.isSessionActive) return;
+
+            const confirmEnd = confirm('Are you sure you want to end this focus session? Your progress will be saved.');
+            if (!confirmEnd) return;
+
+            this.completeSession();
+        }
+
+        completeSession() {
+            if (!this.isSessionActive) return;
+
+            // Stop timer
+            if (this.sessionTimer) {
+                clearInterval(this.sessionTimer);
+                this.sessionTimer = null;
+            }
+
+            // Calculate session stats
+            const sessionMinutes = Math.floor(this.currentSession.elapsedTime / 60);
+            const completionRate = (this.currentSession.elapsedTime / this.currentSession.duration) * 100;
+            
+            // Update user stats
+            this.totalFocusTime += sessionMinutes;
+            this.sessionsCompleted += completionRate >= 80 ? 1 : 0;
+            this.focusScores.push(Math.max(60, Math.min(100, this.currentSession.focusScore)));
+            if (this.focusScores.length > 10) this.focusScores.shift();
+
+            // Reset session state
+            this.isSessionActive = false;
+            this.currentSession = null;
+            
+            this.hideActiveSession();
+            this.updateUI();
+            this.saveUserData();
+            
+            // Show completion message
+            this.showSessionComplete(sessionMinutes, completionRate);
+        }
+
+        showSessionComplete(minutes, completionRate) {
+            const message = completionRate >= 80 ? 
+                `🎉 Great job! You completed ${minutes} minutes of focused work with ${Math.round(completionRate)}% completion rate.` :
+                `Session ended after ${minutes} minutes (${Math.round(completionRate)}% of planned time). Consider trying a shorter session next time.`;
+            
+            alert(message);
+        }
+
+        simulateFocusTracking() {
+            // Clear any existing focus tracking interval
+            if (this.focusTrackingInterval) {
+                clearInterval(this.focusTrackingInterval);
+            }
+            
+            // Simulate focus tracking with random variations
+            this.focusTrackingInterval = setInterval(() => {
+                if (this.isSessionActive && !this.currentSession.isPaused) {
+                    // Random focus score fluctuation
+                    const variation = (Math.random() - 0.5) * 10;
+                    this.currentSession.focusScore = Math.max(60, Math.min(100, this.currentSession.focusScore + variation));
+                    
+                    // Update focus score display
+                    const focusDisplay = document.querySelector('#activeSessionBanner .text-sm.text-text-secondary');
+                    if (focusDisplay && focusDisplay.textContent.includes('focused')) {
+                        focusDisplay.textContent = `${Math.round(this.currentSession.focusScore)}% focused`;
+                    }
+                    
+                    // Simulate blocking distractions
+                    if (Math.random() < 0.1) { // 10% chance per interval
+                        this.distractionsBlocked++;
+                        this.updateUI();
+                    }
+                }
+            }, 30000); // Every 30 seconds
+        }
+
+        startBreakActivity(activityElement) {
+            const activityName = activityElement.querySelector('.font-medium').textContent;
+            const duration = activityElement.querySelector('.text-xs').textContent.match(/(\d+)/)?.[1] || 5;
+            
+            const startBtn = activityElement.querySelector('button');
+            startBtn.textContent = 'Active';
+            startBtn.disabled = true;
+            
+            setTimeout(() => {
+                startBtn.textContent = 'Start';
+                startBtn.disabled = false;
+                alert(`${activityName} completed! Feel refreshed and ready to continue.`);
+            }, duration * 1000); // Convert to milliseconds (simulated fast duration)
+        }
+
+        requestEmergencyOverride() {
+            const reason = prompt('Please provide a reason for the emergency override:');
+            if (reason && reason.trim()) {
+                const confirmed = confirm(`Emergency override requested: "${reason}"\n\nThis will temporarily disable focus restrictions. Continue?`);
+                if (confirmed) {
+                    alert('Emergency override activated for 15 minutes. Focus restrictions have been lifted.');
+                    // In a real app, this would communicate with system-level controls
+                }
+            }
+        }
+
+        addBlockedApp() {
+            const appName = prompt('Enter the name of the application to block:');
+            if (appName && appName.trim()) {
+                const blockedAppsContainer = document.querySelector('.space-y-2');
+                const newAppElement = document.createElement('div');
+                newAppElement.className = 'flex items-center justify-between p-2 bg-gray-50 rounded-lg';
+                newAppElement.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="${appName} icon" class="w-6 h-6 rounded">
+                        <span class="text-sm text-text-primary">${appName}</span>
+                    </div>
+                    <button class="text-error hover:text-red-700">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                `;
+                
+                blockedAppsContainer.insertBefore(newAppElement, blockedAppsContainer.lastElementChild);
+                
+                // Add click listener to new remove button
+                newAppElement.querySelector('.text-error').addEventListener('click', () => {
+                    this.removeBlockedApp(newAppElement);
+                });
+            }
+        }
+
+        removeBlockedApp(appElement) {
+            const appName = appElement.querySelector('span').textContent;
+            const confirmed = confirm(`Remove "${appName}" from blocked applications?`);
+            if (confirmed) {
+                appElement.remove();
+            }
+        }
+
+        updateUI() {
+            // Update daily stats
+            const statsElements = document.querySelectorAll('.font-semibold.text-text-primary, .font-semibold.text-accent, .font-semibold.text-error');
+            
+            if (statsElements.length >= 4) {
+                // Sessions completed
+                statsElements[0].textContent = `${this.sessionsCompleted} / 5`;
+                
+                // Focus time
+                const hours = Math.floor(this.totalFocusTime / 60);
+                const minutes = this.totalFocusTime % 60;
+                statsElements[1].textContent = `${hours}h ${minutes}m`;
+                
+                // Average focus score
+                const avgScore = this.focusScores.length > 0 ? 
+                    Math.round(this.focusScores.reduce((a, b) => a + b, 0) / this.focusScores.length) : 89;
+                statsElements[2].textContent = `${avgScore}%`;
+                
+                // Distractions blocked
+                statsElements[3].textContent = this.distractionsBlocked.toString();
+            }
+
+            // Update progress bar
+            const progressPercent = Math.min(100, (this.sessionsCompleted / 5) * 100);
+            const progressBar = document.querySelector('.bg-gradient-to-r');
+            const progressText = document.querySelector('.text-text-primary.font-medium');
+            
+            if (progressBar && progressText) {
+                progressBar.style.width = `${progressPercent}%`;
+                progressText.textContent = `${Math.round(progressPercent)}%`;
+            }
+        }
+    }
+
+    // Initialize Focus Session Manager when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        window.focusSessionManager = new FocusSessionManager();
+        
+        // Add some enhanced interactions for better UX
+        
+        // Session type hover effects
+        document.querySelectorAll('.session-type-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                }
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                }
+            });
+        });
+
+        // Template card animations
+        document.querySelectorAll('.cursor-pointer').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Form validation
+        const startButton = document.querySelector('.btn-primary');
+        const taskInput = document.querySelector('input[type="text"]');
+        
+        taskInput.addEventListener('input', function() {
+            if (this.value.trim().length > 0) {
+                startButton.classList.remove('opacity-75');
+                startButton.classList.add('hover:shadow-lg');
+            } else {
+                startButton.classList.add('opacity-75');
+                startButton.classList.remove('hover:shadow-lg');
+            }
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + Enter to start session
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                if (!window.focusSessionManager.isSessionActive) {
+                    window.focusSessionManager.startSession();
+                }
+                e.preventDefault();
+            }
+            
+            // Escape to pause/resume
+            if (e.key === 'Escape' && window.focusSessionManager.isSessionActive) {
+                window.focusSessionManager.pauseSession();
+                e.preventDefault();
+            }
+        });
+    });
+
+    // Legacy function for demo button (keep for backward compatibility)
+    function toggleActiveSession() {
+        if (window.focusSessionManager) {
+            if (window.focusSessionManager.isSessionActive) {
+                window.focusSessionManager.endSession();
+            } else {
+                window.focusSessionManager.startSession();
+            }
+        }
+    }
+
+    // Enhanced breathing animation with focus session context
+    setInterval(() => {
+        const breathingElements = document.querySelectorAll('.bg-primary-50, .bg-secondary-50, .bg-accent-50');
+        breathingElements.forEach(el => {
+            // Only animate if not in active session or if it's a break activity
+            if (!window.focusSessionManager?.isSessionActive || el.closest('.space-y-3')) {
+                el.style.transform = 'scale(1.02)';
+                el.style.transition = 'transform 1s ease-in-out';
+                setTimeout(() => {
+                    el.style.transform = 'scale(1)';
+                }, 1000);
+            }
+        });
+    }, 4000);
+</script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/tracker.js"></script>
+<script type="module" src="js/listeners.js"></script>
+<script type="module" src="js/app-init.js"></script>
+
+</body>
+</html>

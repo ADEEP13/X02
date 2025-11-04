@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - DeepSync</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fdeepsync5353back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header -->
+    <header class="bg-surface border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-primary mr-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 12C8 8.68629 10.6863 6 14 6H18C21.3137 6 24 8.68629 24 12V20C24 23.3137 21.3137 26 18 26H14C10.6863 26 8 23.3137 8 20V12Z" fill="currentColor" opacity="0.2"/>
+                        <path d="M16 8C12.6863 8 10 10.6863 10 14V18C10 21.3137 12.6863 24 16 24C19.3137 24 22 21.3137 22 18V14C22 10.6863 19.3137 8 16 8Z" fill="currentColor"/>
+                        <path d="M14 12H18M14 16H18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-xl font-bold text-text-primary">DeepSync</span>
+                </div>
+
+                <!-- Skip Link -->
+                <button onclick="skipToStep(4)" class="text-text-secondary hover:text-primary transition-colors text-sm font-medium">
+                    Skip Setup →
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Progress Indicator -->
+        <div class="mb-12">
+            <div class="flex items-center justify-between mb-4">
+                <h1 class="text-2xl font-bold text-text-primary">Welcome to DeepSync</h1>
+                <span class="text-sm text-text-secondary">Step <span id="currentStep">1</span> of 4</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progressBar" class="bg-primary h-2 rounded-full transition-all duration-500" style="width: 25%"></div>
+            </div>
+        </div>
+
+        <!-- Step 1: Profession Selection -->
+        <div id="step1" class="step-content">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">What best describes you?</h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                    Help us personalize your DeepSync experience with profession-specific insights and recommendations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Student Card -->
+                <div class="profession-card cursor-pointer" data-profession="student">
+                    <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-primary">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.168 18.477 18.582 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Student</h3>
+                            <p class="text-text-secondary text-sm">
+                                Balance academic success with healthy digital habits and entertainment
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Card -->
+                <div class="profession-card cursor-pointer" data-profession="professional">
+                    <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-primary">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-secondary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0H8"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Working Professional</h3>
+                            <p class="text-text-secondary text-sm">
+                                Optimize productivity and prevent burnout in your career
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Worker Card -->
+                <div class="profession-card cursor-pointer" data-profession="tech">
+                    <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-primary">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-accent-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Tech Worker</h3>
+                            <p class="text-text-secondary text-sm">
+                                Manage screen-intensive careers while maintaining wellness
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parent/Educator Card -->
+                <div class="profession-card cursor-pointer" data-profession="educator">
+                    <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-primary">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Parent/Educator</h3>
+                            <p class="text-text-secondary text-sm">
+                                Model healthy digital behavior for others
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Freelancer Card -->
+                <div class="profession-card cursor-pointer" data-profession="freelancer">
+                    <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-primary">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Freelancer</h3>
+                            <p class="text-text-secondary text-sm">
+                                Maintain focus and boundaries while working independently
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Card -->
+                <div class="profession-card cursor-pointer" data-profession="other">
+                    <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-primary">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Other</h3>
+                            <p class="text-text-secondary text-sm">
+                                I'll customize my experience as I explore the platform
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <button id="continueStep1" class="btn-primary opacity-50 cursor-not-allowed" disabled>
+                    Continue to Assessment
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Digital Habits Assessment -->
+        <div id="step2" class="step-content hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">Let's assess your digital habits</h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                    Answer these questions honestly to help us understand your current relationship with technology.
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto space-y-8">
+                <!-- Question 1 -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">
+                        How many hours per day do you typically spend on digital devices?
+                    </h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="screenTime" value="2-4" class="mr-3 text-primary">
+                            <span class="text-text-primary">2-4 hours</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="screenTime" value="4-6" class="mr-3 text-primary">
+                            <span class="text-text-primary">4-6 hours</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="screenTime" value="6-8" class="mr-3 text-primary">
+                            <span class="text-text-primary">6-8 hours</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="screenTime" value="8+" class="mr-3 text-primary">
+                            <span class="text-text-primary">8+ hours</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">
+                        What's your biggest digital distraction challenge?
+                    </h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="challenge" value="social-media" class="mr-3 text-primary">
+                            <span class="text-text-primary">Social media scrolling</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="challenge" value="notifications" class="mr-3 text-primary">
+                            <span class="text-text-primary">Constant notifications</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="challenge" value="multitasking" class="mr-3 text-primary">
+                            <span class="text-text-primary">Digital multitasking</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="challenge" value="entertainment" class="mr-3 text-primary">
+                            <span class="text-text-primary">Entertainment apps/games</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">
+                        How often do you feel overwhelmed by your digital usage?
+                    </h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="overwhelm" value="rarely" class="mr-3 text-primary">
+                            <span class="text-text-primary">Rarely</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="overwhelm" value="sometimes" class="mr-3 text-primary">
+                            <span class="text-text-primary">Sometimes</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="overwhelm" value="often" class="mr-3 text-primary">
+                            <span class="text-text-primary">Often</span>
+                        </label>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="overwhelm" value="daily" class="mr-3 text-primary">
+                            <span class="text-text-primary">Daily</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center mt-12">
+                <button id="continueStep2" class="btn-primary opacity-50 cursor-not-allowed" disabled>
+                    Continue to Goals
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: Goal Setting -->
+        <div id="step3" class="step-content hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">What are your wellness goals?</h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                    Select the objectives that matter most to you. We'll help you achieve them step by step.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- Goal Cards -->
+                    <div class="goal-card cursor-pointer" data-goal="focus">
+                        <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-secondary">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2">Improve Focus</h3>
+                                    <p class="text-text-secondary text-sm">
+                                        Reduce distractions and maintain deep work sessions
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="goal-card cursor-pointer" data-goal="balance">
+                        <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-secondary">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2">Work-Life Balance</h3>
+                                    <p class="text-text-secondary text-sm">
+                                        Create healthy boundaries between work and personal time
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="goal-card cursor-pointer" data-goal="productivity">
+                        <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-secondary">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2">Boost Productivity</h3>
+                                    <p class="text-text-secondary text-sm">
+                                        Optimize your workflow and accomplish more in less time
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="goal-card cursor-pointer" data-goal="mindful">
+                        <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-secondary">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2">Mindful Usage</h3>
+                                    <p class="text-text-secondary text-sm">
+                                        Develop intentional relationships with your devices
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="goal-card cursor-pointer" data-goal="sleep">
+                        <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-secondary">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2">Better Sleep</h3>
+                                    <p class="text-text-secondary text-sm">
+                                        Reduce screen time before bed for improved rest
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="goal-card cursor-pointer" data-goal="social">
+                        <div class="card hover:shadow-elevated transition-all duration-300 border-2 border-transparent hover:border-secondary">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2">Social Connection</h3>
+                                    <p class="text-text-secondary text-sm">
+                                        Prioritize real-world relationships over digital ones
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center text-sm text-text-secondary mb-8">
+                    Select multiple goals that resonate with you
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <button id="continueStep3" class="btn-primary opacity-50 cursor-not-allowed" disabled>
+                    Continue to Preferences
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 4: Preferences & Customization -->
+        <div id="step4" class="step-content hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">Customize your experience</h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                    Set your preferences to make DeepSync work perfectly for your lifestyle and goals.
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto space-y-8">
+                <!-- Notification Preferences -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-6">Notification Preferences</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-text-primary">Focus Reminders</p>
+                                <p class="text-sm text-text-secondary">Get gentle nudges to start focus sessions</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-text-primary">Break Suggestions</p>
+                                <p class="text-sm text-text-secondary">Reminders to take healthy breaks</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-text-primary">Weekly Reports</p>
+                                <p class="text-sm text-text-secondary">Summary of your digital wellness progress</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Focus Session Preferences -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-6">Focus Session Settings</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">
+                                Default Focus Session Length
+                            </label>
+                            <select class="input-field">
+                                <option value="25">25 minutes (Pomodoro)</option>
+                                <option value="45">45 minutes</option>
+                                <option value="60">60 minutes</option>
+                                <option value="90" selected>90 minutes (Deep Work)</option>
+                                <option value="120">2 hours</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">
+                                Break Duration
+                            </label>
+                            <select class="input-field">
+                                <option value="5" selected>5 minutes</option>
+                                <option value="10">10 minutes</option>
+                                <option value="15">15 minutes</option>
+                                <option value="30">30 minutes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Settings -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-6">Privacy & Data</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-text-primary">Anonymous Usage Analytics</p>
+                                <p class="text-sm text-text-secondary">Help improve DeepSync with anonymous data</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-text-primary">Community Features</p>
+                                <p class="text-sm text-text-secondary">Share progress with the DeepSync community</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center mt-12">
+                <button id="completeOnboarding" class="btn-primary">
+                    Complete Setup & Start Journey
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentStep = 1;
+        let selectedProfession = '';
+        let selectedGoals = [];
+        
+        // Step navigation
+        function nextStep() {
+            if (currentStep < 4) {
+                document.getElementById(`step${currentStep}`).classList.add('hidden');
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.remove('hidden');
+                document.getElementById('currentStep').textContent = currentStep;
+                document.getElementById('progressBar').style.width = `${currentStep * 25}%`;
+            }
+        }
+        
+        function skipToStep(step) {
+            document.getElementById(`step${currentStep}`).classList.add('hidden');
+            currentStep = step;
+            document.getElementById(`step${currentStep}`).classList.remove('hidden');
+            document.getElementById('currentStep').textContent = currentStep;
+            document.getElementById('progressBar').style.width = `${currentStep * 25}%`;
+        }
+        
+        // Step 1: Profession Selection
+        document.querySelectorAll('.profession-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove previous selection
+                document.querySelectorAll('.profession-card .card').forEach(c => {
+                    c.classList.remove('border-primary', 'bg-primary-50');
+                    c.classList.add('border-transparent');
+                });
+                
+                // Add selection to clicked card
+                const cardElement = this.querySelector('.card');
+                cardElement.classList.add('border-primary', 'bg-primary-50');
+                cardElement.classList.remove('border-transparent');
+                
+                selectedProfession = this.dataset.profession;
+                document.getElementById('continueStep1').classList.remove('opacity-50', 'cursor-not-allowed');
+                document.getElementById('continueStep1').disabled = false;
+            });
+        });
+        
+        document.getElementById('continueStep1').addEventListener('click', nextStep);
+        
+        // Step 2: Assessment validation
+        function validateStep2() {
+            const screenTime = document.querySelector('input[name="screenTime"]:checked');
+            const challenge = document.querySelector('input[name="challenge"]:checked');
+            const overwhelm = document.querySelector('input[name="overwhelm"]:checked');
+            
+            if (screenTime && challenge && overwhelm) {
+                document.getElementById('continueStep2').classList.remove('opacity-50', 'cursor-not-allowed');
+                document.getElementById('continueStep2').disabled = false;
+            }
+        }
+        
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', validateStep2);
+        });
+        
+        document.getElementById('continueStep2').addEventListener('click', nextStep);
+        
+        // Step 3: Goal Selection
+        document.querySelectorAll('.goal-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const cardElement = this.querySelector('.card');
+                const goal = this.dataset.goal;
+                
+                if (selectedGoals.includes(goal)) {
+                    // Remove selection
+                    cardElement.classList.remove('border-secondary', 'bg-secondary-50');
+                    cardElement.classList.add('border-transparent');
+                    selectedGoals = selectedGoals.filter(g => g !== goal);
+                } else {
+                    // Add selection
+                    cardElement.classList.add('border-secondary', 'bg-secondary-50');
+                    cardElement.classList.remove('border-transparent');
+                    selectedGoals.push(goal);
+                }
+                
+                if (selectedGoals.length > 0) {
+                    document.getElementById('continueStep3').classList.remove('opacity-50', 'cursor-not-allowed');
+                    document.getElementById('continueStep3').disabled = false;
+                } else {
+                    document.getElementById('continueStep3').classList.add('opacity-50', 'cursor-not-allowed');
+                    document.getElementById('continueStep3').disabled = true;
+                }
+            });
+        });
+        
+        document.getElementById('continueStep3').addEventListener('click', nextStep);
+        
+        // Complete onboarding
+        document.getElementById('completeOnboarding').addEventListener('click', function() {
+            // Store onboarding data (in real app, this would be sent to server)
+            const onboardingData = {
+                profession: selectedProfession,
+                goals: selectedGoals,
+                completedAt: new Date().toISOString()
+            };
+            
+            localStorage.setItem('deepsync_onboarding', JSON.stringify(onboardingData));
+            
+            // Redirect to dashboard
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/tracker.js"></script>
+<script type="module" src="js/listeners.js"></script>
+<script type="module" src="js/app-init.js"></script>
+
+</body>
+</html>

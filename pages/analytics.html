@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - DeepSync</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fdeepsync5353back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-primary mr-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 12C8 8.68629 10.6863 6 14 6H18C21.3137 6 24 8.68629 24 12V20C24 23.3137 21.3137 26 18 26H14C10.6863 26 8 23.3137 8 20V12Z" fill="currentColor" opacity="0.2"/>
+                        <path d="M16 8C12.6863 8 10 10.6863 10 14V18C10 21.3137 12.6863 24 16 24C19.3137 24 22 21.3137 22 18V14C22 10.6863 19.3137 8 16 8Z" fill="currentColor"/>
+                        <path d="M14 12H18M14 16H18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-xl font-bold text-text-primary">DeepSync</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+                    <a href="analytics.html" class="text-primary font-medium border-b-2 border-primary pb-1">Analytics</a>
+                    <a href="focus_sessions.html" class="text-text-secondary hover:text-primary transition-colors">Focus</a>
+                    <a href="schedule.html" class="text-text-secondary hover:text-primary transition-colors">Schedule</a>
+                    <a href="settings.html" class="text-text-secondary hover:text-primary transition-colors">Settings</a>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </button>
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-medium">JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-text-primary mb-2">Usage Analytics</h1>
+                <p class="text-text-secondary">Deep insights into your digital habits and productivity patterns</p>
+            </div>
+            
+            <!-- Time Period Selector -->
+            <div class="flex items-center space-x-2 mt-4 lg:mt-0">
+                <button class="px-4 py-2 text-sm font-medium text-primary bg-primary-50 border border-primary-200 rounded-lg">Daily</button>
+                <button class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:bg-gray-50 border border-gray-200 rounded-lg transition-colors">Weekly</button>
+                <button class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:bg-gray-50 border border-gray-200 rounded-lg transition-colors">Monthly</button>
+                <button class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary hover:bg-gray-50 border border-gray-200 rounded-lg transition-colors">Yearly</button>
+                <button class="ml-4 p-2 text-text-secondary hover:text-primary transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Key Metrics Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Total Screen Time -->
+            <div class="card bg-gradient-to-br from-primary-50 to-primary-100 border-primary-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-text-secondary text-sm font-medium">Total Screen Time</p>
+                        <p class="text-2xl font-bold text-primary mt-1">6h 42m</p>
+                        <p class="text-secondary text-sm mt-1">↓ 23% vs last week</p>
+                    </div>
+                    <div class="w-12 h-12 bg-primary-200 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productivity Score -->
+            <div class="card bg-gradient-to-br from-secondary-50 to-secondary-100 border-secondary-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-text-secondary text-sm font-medium">Productivity Score</p>
+                        <p class="text-2xl font-bold text-secondary mt-1">87%</p>
+                        <p class="text-accent text-sm mt-1">↑ 15% improvement</p>
+                    </div>
+                    <div class="w-12 h-12 bg-secondary-200 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Sessions -->
+            <div class="card bg-gradient-to-br from-accent-50 to-accent-100 border-accent-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-text-secondary text-sm font-medium">Focus Sessions</p>
+                        <p class="text-2xl font-bold text-accent mt-1">12</p>
+                        <p class="text-secondary text-sm mt-1">8.5h total focus time</p>
+                    </div>
+                    <div class="w-12 h-12 bg-accent-200 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distraction Events -->
+            <div class="card bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-text-secondary text-sm font-medium">Distractions Blocked</p>
+                        <p class="text-2xl font-bold text-orange-600 mt-1">47</p>
+                        <p class="text-text-secondary text-sm mt-1">2.3h time saved</p>
+                    </div>
+                    <div class="w-12 h-12 bg-orange-200 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Analytics Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Charts -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Usage Trend Chart -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Usage Trends</h2>
+                        <div class="flex items-center space-x-2">
+                            <button class="px-3 py-1 text-xs font-medium text-primary bg-primary-50 rounded-full">Screen Time</button>
+                            <button class="px-3 py-1 text-xs font-medium text-text-secondary hover:text-primary hover:bg-gray-50 rounded-full transition-colors">Productivity</button>
+                            <button class="px-3 py-1 text-xs font-medium text-text-secondary hover:text-primary hover:bg-gray-50 rounded-full transition-colors">Focus</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Chart Placeholder -->
+                    <div class="relative h-80 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-full h-full p-6" viewBox="0 0 400 200">
+                            <!-- Grid Lines -->
+                            <defs>
+                                <pattern id="grid" width="40" height="20" patternUnits="userSpaceOnUse">
+                                    <path d="M 40 0 L 0 0 0 20" fill="none" stroke="#E5E7EB" stroke-width="0.5"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#grid)" />
+                            
+                            <!-- Usage Trend Line -->
+                            <polyline fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                      points="20,160 60,140 100,120 140,100 180,85 220,75 260,80 300,70 340,65 380,60"/>
+                            
+                            <!-- Data Points -->
+                            <circle cx="20" cy="160" r="4" fill="#2563EB"/>
+                            <circle cx="60" cy="140" r="4" fill="#2563EB"/>
+                            <circle cx="100" cy="120" r="4" fill="#2563EB"/>
+                            <circle cx="140" cy="100" r="4" fill="#2563EB"/>
+                            <circle cx="180" cy="85" r="4" fill="#2563EB"/>
+                            <circle cx="220" cy="75" r="4" fill="#2563EB"/>
+                            <circle cx="260" cy="80" r="4" fill="#2563EB"/>
+                            <circle cx="300" cy="70" r="4" fill="#2563EB"/>
+                            <circle cx="340" cy="65" r="4" fill="#2563EB"/>
+                            <circle cx="380" cy="60" r="4" fill="#2563EB"/>
+                            
+                            <!-- Labels -->
+                            <text x="20" y="190" text-anchor="middle" class="text-xs fill-text-secondary">Mon</text>
+                            <text x="100" y="190" text-anchor="middle" class="text-xs fill-text-secondary">Wed</text>
+                            <text x="180" y="190" text-anchor="middle" class="text-xs fill-text-secondary">Fri</text>
+                            <text x="260" y="190" text-anchor="middle" class="text-xs fill-text-secondary">Sun</text>
+                            <text x="340" y="190" text-anchor="middle" class="text-xs fill-text-secondary">Tue</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Category Breakdown -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Usage by Category</h2>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">View Details</button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Donut Chart -->
+                        <div class="flex items-center justify-center">
+                            <svg class="w-48 h-48" viewBox="0 0 200 200">
+                                <!-- Donut Chart Segments -->
+                                <circle cx="100" cy="100" r="70" fill="none" stroke="#E5E7EB" stroke-width="20"/>
+                                <circle cx="100" cy="100" r="70" fill="none" stroke="#2563EB" stroke-width="20" 
+                                        stroke-dasharray="130 310" stroke-dashoffset="25" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="70" fill="none" stroke="#059669" stroke-width="20" 
+                                        stroke-dasharray="88 352" stroke-dashoffset="-105" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="70" fill="none" stroke="#7C3AED" stroke-width="20" 
+                                        stroke-dasharray="66 374" stroke-dashoffset="-193" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="70" fill="none" stroke="#F59E0B" stroke-width="20" 
+                                        stroke-dasharray="44 396" stroke-dashoffset="-259" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="70" fill="none" stroke="#EF4444" stroke-width="20" 
+                                        stroke-dasharray="32 408" stroke-dashoffset="-303" transform="rotate(-90 100 100)"/>
+                                
+                                <!-- Center Text -->
+                                <text x="100" y="95" text-anchor="middle" class="text-2xl font-bold fill-text-primary">6h 42m</text>
+                                <text x="100" y="115" text-anchor="middle" class="text-sm fill-text-secondary">Total Today</text>
+                            </svg>
+                        </div>
+                        
+                        <!-- Category Legend -->
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-4 h-4 bg-primary rounded-full"></div>
+                                    <span class="text-sm font-medium text-text-primary">Productivity</span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-semibold text-text-primary">2h 45m</p>
+                                    <p class="text-xs text-text-secondary">41%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-4 h-4 bg-secondary rounded-full"></div>
+                                    <span class="text-sm font-medium text-text-primary">Communication</span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-semibold text-text-primary">1h 52m</p>
+                                    <p class="text-xs text-text-secondary">28%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-4 h-4 bg-accent rounded-full"></div>
+                                    <span class="text-sm font-medium text-text-primary">Learning</span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-semibold text-text-primary">1h 23m</p>
+                                    <p class="text-xs text-text-secondary">21%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                    <span class="text-sm font-medium text-text-primary">Social Media</span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-semibold text-text-primary">32m</p>
+                                    <p class="text-xs text-text-secondary">8%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+                                    <span class="text-sm font-medium text-text-primary">Entertainment</span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm font-semibold text-text-primary">10m</p>
+                                    <p class="text-xs text-text-secondary">2%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peak Usage Heatmap -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Peak Usage Times</h2>
+                        <div class="flex items-center space-x-2 text-xs text-text-secondary">
+                            <span>Less</span>
+                            <div class="flex space-x-1">
+                                <div class="w-3 h-3 bg-gray-200 rounded-sm"></div>
+                                <div class="w-3 h-3 bg-primary-200 rounded-sm"></div>
+                                <div class="w-3 h-3 bg-primary-400 rounded-sm"></div>
+                                <div class="w-3 h-3 bg-primary-600 rounded-sm"></div>
+                                <div class="w-3 h-3 bg-primary-800 rounded-sm"></div>
+                            </div>
+                            <span>More</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Heatmap Grid -->
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-text-secondary w-12">Mon</span>
+                            <div class="flex space-x-1">
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="12 AM"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="1 AM"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="2 AM"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="3 AM"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="4 AM"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="5 AM"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm" title="6 AM"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm" title="7 AM"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm" title="8 AM"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm" title="9 AM"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm" title="10 AM"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm" title="11 AM"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm" title="12 PM"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm" title="1 PM"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm" title="2 PM"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm" title="3 PM"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm" title="4 PM"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm" title="5 PM"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm" title="6 PM"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm" title="7 PM"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm" title="8 PM"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="9 PM"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="10 PM"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm" title="11 PM"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-text-secondary w-12">Tue</span>
+                            <div class="flex space-x-1">
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional days with similar pattern -->
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-text-secondary w-12">Wed</span>
+                            <div class="flex space-x-1">
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-800 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-600 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-400 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-primary-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                                <div class="w-4 h-4 bg-gray-200 rounded-sm"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Insights & Details -->
+            <div class="space-y-8">
+                <!-- AI Insights -->
+                <div class="card bg-gradient-to-br from-accent-50 to-accent-100 border-accent-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-text-primary">AI Insights</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="p-3 bg-white rounded-lg border border-accent-200">
+                            <p class="text-sm text-text-primary font-medium mb-1">Peak Productivity Window</p>
+                            <p class="text-xs text-text-secondary">Your focus is highest between 9-11 AM with 94% productivity score.</p>
+                        </div>
+                        
+                        <div class="p-3 bg-white rounded-lg border border-accent-200">
+                            <p class="text-sm text-text-primary font-medium mb-1">Distraction Pattern</p>
+                            <p class="text-xs text-text-secondary">Social media usage spikes at 3 PM. Consider scheduling a break.</p>
+                        </div>
+                        
+                        <div class="p-3 bg-white rounded-lg border border-accent-200">
+                            <p class="text-sm text-text-primary font-medium mb-1">Weekly Improvement</p>
+                            <p class="text-xs text-text-secondary">You've reduced screen time by 23% while maintaining productivity.</p>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full mt-4 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-700 transition-colors text-sm font-medium">
+                        Get Personalized Recommendations
+                    </button>
+                </div>
+
+                <!-- Peer Comparison -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">Peer Comparison</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-text-secondary">Screen Time vs Peers</span>
+                                <span class="text-secondary font-medium">23% below average</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 77%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-text-secondary">Productivity Score</span>
+                                <span class="text-primary font-medium">15% above average</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-text-secondary">Focus Sessions</span>
+                                <span class="text-accent font-medium">8% above average</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-3 bg-secondary-50 rounded-lg border border-secondary-200">
+                        <p class="text-xs text-text-secondary">
+                            <span class="font-medium text-secondary">Great progress!</span> You're in the top 25% of users in your profession category.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Top Applications -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-semibold text-text-primary">Top Applications</h3>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">View All</button>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_168518482-1762230447299.png" 
+                                     alt="VS Code application icon" class="w-8 h-8 rounded-lg object-cover"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">VS Code</p>
+                                    <p class="text-xs text-text-secondary">Development</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-semibold text-text-primary">2h 15m</p>
+                                <p class="text-xs text-text-secondary">34%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_142561301-1762230446999.png" 
+                                     alt="Slack communication app icon" class="w-8 h-8 rounded-lg object-cover"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Slack</p>
+                                    <p class="text-xs text-text-secondary">Communication</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-semibold text-text-primary">1h 32m</p>
+                                <p class="text-xs text-text-secondary">23%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_103b190a2-1762230446019.png" 
+                                     alt="Chrome browser icon" class="w-8 h-8 rounded-lg object-cover"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Chrome</p>
+                                    <p class="text-xs text-text-secondary">Browser</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-semibold text-text-primary">1h 8m</p>
+                                <p class="text-xs text-text-secondary">17%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_15032d21d-1762230445171.png" 
+                                     alt="Spotify music app icon" class="w-8 h-8 rounded-lg object-cover"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Spotify</p>
+                                    <p class="text-xs text-text-secondary">Music</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-semibold text-text-primary">47m</p>
+                                <p class="text-xs text-text-secondary">12%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Options -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">Export Data</h3>
+                    
+                    <div class="space-y-3">
+                        <button class="w-full px-4 py-3 border border-gray-200 rounded-lg text-text-primary hover:bg-gray-50 transition-colors text-sm font-medium flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                            </svg>
+                            <span>Download PDF Report</span>
+                        </button>
+                        
+                        <button class="w-full px-4 py-3 border border-gray-200 rounded-lg text-text-primary hover:bg-gray-50 transition-colors text-sm font-medium flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span>Export CSV Data</span>
+                        </button>
+                        
+                        <button class="w-full px-4 py-3 border border-gray-200 rounded-lg text-text-primary hover:bg-gray-50 transition-colors text-sm font-medium flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                            </svg>
+                            <span>Share Analytics</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-gray-200 px-4 py-2">
+        <div class="flex justify-around">
+            <a href="dashboard.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                <span class="text-xs mt-1">Dashboard</span>
+            </a>
+            <a href="analytics.html" class="flex flex-col items-center py-2 text-primary">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                </svg>
+                <span class="text-xs mt-1">Analytics</span>
+            </a>
+            <a href="focus_sessions.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span class="text-xs mt-1">Focus</span>
+            </a>
+            <a href="schedule.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <span class="text-xs mt-1">Schedule</span>
+            </a>
+            <a href="settings.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="text-xs mt-1">Settings</span>
+            </a>
+        </div>
+    </nav>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/tracker.js"></script>
+<script type="module" src="js/listeners.js"></script>
+<script type="module" src="js/app-init.js"></script>
+
+</body>
+</html>

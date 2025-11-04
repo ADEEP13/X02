@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - DeepSync</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fdeepsync5353back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-primary mr-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 12C8 8.68629 10.6863 6 14 6H18C21.3137 6 24 8.68629 24 12V20C24 23.3137 21.3137 26 18 26H14C10.6863 26 8 23.3137 8 20V12Z" fill="currentColor" opacity="0.2"/>
+                        <path d="M16 8C12.6863 8 10 10.6863 10 14V18C10 21.3137 12.6863 24 16 24C19.3137 24 22 21.3137 22 18V14C22 10.6863 19.3137 8 16 8Z" fill="currentColor"/>
+                        <path d="M14 12H18M14 16H18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-xl font-bold text-text-primary">DeepSync</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+                    <a href="analytics.html" class="text-text-secondary hover:text-primary transition-colors">Analytics</a>
+                    <a href="focus_sessions.html" class="text-text-secondary hover:text-primary transition-colors">Focus</a>
+                    <a href="schedule.html" class="text-primary font-medium border-b-2 border-primary pb-1">Schedule</a>
+                    <a href="settings.html" class="text-text-secondary hover:text-primary transition-colors">Settings</a>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"></path>
+                        </svg>
+                    </button>
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-medium">JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-text-primary mb-2">Schedule Builder</h1>
+                <p class="text-text-secondary">Create and manage your intelligent timetable with AI-powered optimization</p>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="flex items-center space-x-4 mt-4 lg:mt-0">
+                <button class="btn-secondary">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Sync Calendar
+                </button>
+                <button class="btn-primary">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    Add Event
+                </button>
+            </div>
+        </div>
+
+        <!-- Schedule Controls -->
+        <div class="card mb-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                <!-- View Toggle -->
+                <div class="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+                    <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium transition-colors">
+                        Week
+                    </button>
+                    <button class="px-4 py-2 text-text-secondary hover:text-primary rounded-md text-sm font-medium transition-colors">
+                        Day
+                    </button>
+                    <button class="px-4 py-2 text-text-secondary hover:text-primary rounded-md text-sm font-medium transition-colors">
+                        Month
+                    </button>
+                </div>
+
+                <!-- Date Navigation -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="text-center">
+                        <h2 class="text-lg font-semibold text-text-primary">November 4-10, 2025</h2>
+                        <p class="text-sm text-text-secondary">Week 45</p>
+                    </div>
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Filter Options -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-primary rounded-full"></div>
+                        <span class="text-sm text-text-secondary">Work</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                        <span class="text-sm text-text-secondary">Focus</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-accent rounded-full"></div>
+                        <span class="text-sm text-text-secondary">Personal</span>
+                    </div>
+                    <button class="text-text-secondary hover:text-primary transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weekly Calendar Grid -->
+        <div class="card overflow-hidden">
+            <!-- Calendar Header -->
+            <div class="grid grid-cols-8 border-b border-gray-200">
+                <div class="p-4 text-sm font-medium text-text-secondary">Time</div>
+                <div class="p-4 text-center border-l border-gray-200">
+                    <div class="text-sm font-medium text-text-primary">Mon</div>
+                    <div class="text-xs text-text-secondary">Nov 4</div>
+                </div>
+                <div class="p-4 text-center border-l border-gray-200">
+                    <div class="text-sm font-medium text-text-primary">Tue</div>
+                    <div class="text-xs text-text-secondary">Nov 5</div>
+                </div>
+                <div class="p-4 text-center border-l border-gray-200">
+                    <div class="text-sm font-medium text-text-primary">Wed</div>
+                    <div class="text-xs text-text-secondary">Nov 6</div>
+                </div>
+                <div class="p-4 text-center border-l border-gray-200">
+                    <div class="text-sm font-medium text-text-primary">Thu</div>
+                    <div class="text-xs text-text-secondary">Nov 7</div>
+                </div>
+                <div class="p-4 text-center border-l border-gray-200">
+                    <div class="text-sm font-medium text-text-primary">Fri</div>
+                    <div class="text-xs text-text-secondary">Nov 8</div>
+                </div>
+                <div class="p-4 text-center border-l border-gray-200">
+                    <div class="text-sm font-medium text-text-primary">Sat</div>
+                    <div class="text-xs text-text-secondary">Nov 9</div>
+                </div>
+                <div class="p-4 text-center border-l border-gray-200">
+                    <div class="text-sm font-medium text-text-primary">Sun</div>
+                    <div class="text-xs text-text-secondary">Nov 10</div>
+                </div>
+            </div>
+
+            <!-- Calendar Body -->
+            <div class="relative">
+                <!-- Time Slots -->
+                <div class="grid grid-cols-8">
+                    <!-- 9:00 AM Row -->
+                    <div class="p-4 text-sm text-text-secondary border-b border-gray-100">9:00 AM</div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-secondary-100 border border-secondary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-secondary-800">Team Standup</div>
+                            <div class="text-xs text-secondary-600">9:00 - 9:30 AM</div>
+                        </div>
+                    </div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-secondary-100 border border-secondary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-secondary-800">Team Standup</div>
+                            <div class="text-xs text-secondary-600">9:00 - 9:30 AM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-secondary-100 border border-secondary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-secondary-800">Team Standup</div>
+                            <div class="text-xs text-secondary-600">9:00 - 9:30 AM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-secondary-100 border border-secondary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-secondary-800">Team Standup</div>
+                            <div class="text-xs text-secondary-600">9:00 - 9:30 AM</div>
+                        </div>
+                    </div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+
+                    <!-- 10:00 AM Row -->
+                    <div class="p-4 text-sm text-text-secondary border-b border-gray-100">10:00 AM</div>
+                    <div class="relative border-l border-b border-gray-100 h-20">
+                        <div class="absolute inset-1 bg-primary-100 border border-primary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-primary-800">Deep Work Block</div>
+                            <div class="text-xs text-primary-600">10:00 AM - 12:00 PM</div>
+                            <div class="flex items-center mt-1">
+                                <svg class="w-3 h-3 text-primary-600 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <span class="text-xs text-primary-600">Focus Mode</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-20">
+                        <div class="absolute inset-1 bg-primary-100 border border-primary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-primary-800">Code Review</div>
+                            <div class="text-xs text-primary-600">10:30 AM - 11:30 AM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-20">
+                        <div class="absolute inset-1 bg-primary-100 border border-primary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-primary-800">Deep Work Block</div>
+                            <div class="text-xs text-primary-600">10:00 AM - 12:00 PM</div>
+                            <div class="flex items-center mt-1">
+                                <svg class="w-3 h-3 text-primary-600 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <span class="text-xs text-primary-600">Focus Mode</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-20">
+                        <div class="absolute inset-1 bg-primary-100 border border-primary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-primary-800">Deep Work Block</div>
+                            <div class="text-xs text-primary-600">10:00 AM - 12:00 PM</div>
+                            <div class="flex items-center mt-1">
+                                <svg class="w-3 h-3 text-primary-600 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <span class="text-xs text-primary-600">Focus Mode</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-l border-b border-gray-100 h-20"></div>
+                    <div class="relative border-l border-b border-gray-100 h-20">
+                        <div class="absolute inset-1 bg-accent-100 border border-accent-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-accent-800">Personal Project</div>
+                            <div class="text-xs text-accent-600">10:00 AM - 11:30 AM</div>
+                        </div>
+                    </div>
+
+                    <!-- 12:00 PM Row -->
+                    <div class="p-4 text-sm text-text-secondary border-b border-gray-100">12:00 PM</div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-orange-100 border border-orange-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-orange-800">Lunch Break</div>
+                            <div class="text-xs text-orange-600">12:00 - 1:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-orange-100 border border-orange-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-orange-800">Lunch Break</div>
+                            <div class="text-xs text-orange-600">12:00 - 1:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-orange-100 border border-orange-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-orange-800">Lunch Break</div>
+                            <div class="text-xs text-orange-600">12:00 - 1:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-orange-100 border border-orange-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-orange-800">Lunch Break</div>
+                            <div class="text-xs text-orange-600">12:00 - 1:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-orange-100 border border-orange-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-orange-800">Lunch Break</div>
+                            <div class="text-xs text-orange-600">12:00 - 1:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+
+                    <!-- 2:00 PM Row -->
+                    <div class="p-4 text-sm text-text-secondary border-b border-gray-100">2:00 PM</div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-accent-100 border border-accent-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-accent-800">Learning Session</div>
+                            <div class="text-xs text-accent-600">2:00 - 3:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-primary-100 border border-primary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-primary-800">Client Meeting</div>
+                            <div class="text-xs text-primary-600">2:00 - 3:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-accent-100 border border-accent-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-accent-800">Learning Session</div>
+                            <div class="text-xs text-accent-600">2:00 - 3:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-accent-100 border border-accent-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-accent-800">Learning Session</div>
+                            <div class="text-xs text-accent-600">2:00 - 3:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+
+                    <!-- 4:00 PM Row -->
+                    <div class="p-4 text-sm text-text-secondary border-b border-gray-100">4:00 PM</div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-secondary-100 border border-secondary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-secondary-800">Team Sync</div>
+                            <div class="text-xs text-secondary-600">4:00 - 4:30 PM</div>
+                        </div>
+                    </div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="relative border-l border-b border-gray-100 h-16">
+                        <div class="absolute inset-1 bg-secondary-100 border border-secondary-300 rounded p-2 cursor-pointer hover:shadow-subtle transition-shadow">
+                            <div class="text-xs font-medium text-secondary-800">Team Sync</div>
+                            <div class="text-xs text-secondary-600">4:00 - 4:30 PM</div>
+                        </div>
+                    </div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                    <div class="border-l border-b border-gray-100 h-16"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Suggestions & Quick Stats -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+            <!-- AI Schedule Optimization -->
+            <div class="lg:col-span-2">
+                <div class="card bg-gradient-to-br from-accent-50 to-accent-100 border-accent-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-text-primary">AI Schedule Optimization</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4 border border-accent-200">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-accent rounded-full mt-2"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Optimize Deep Work Blocks</p>
+                                    <p class="text-xs text-text-secondary mt-1">Your productivity peaks at 10-11 AM. Consider moving your most challenging tasks to this window.</p>
+                                    <button class="text-accent hover:text-accent-700 text-xs font-medium mt-2">Apply Suggestion</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 border border-accent-200">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-secondary rounded-full mt-2"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Add Strategic Breaks</p>
+                                    <p class="text-xs text-text-secondary mt-1">You have 3+ hour work blocks without breaks. Adding 15-minute breaks can improve focus by 23%.</p>
+                                    <button class="text-secondary hover:text-secondary-700 text-xs font-medium mt-2">Add Breaks</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 border border-accent-200">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Batch Similar Tasks</p>
+                                    <p class="text-xs text-text-secondary mt-1">Group your meetings on Tuesday and Thursday to create longer focus blocks on other days.</p>
+                                    <button class="text-primary hover:text-primary-700 text-xs font-medium mt-2">Reorganize</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Stats -->
+            <div class="space-y-6">
+                <!-- Weekly Overview -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">This Week</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">Total Scheduled</span>
+                            <span class="text-sm font-medium text-text-primary">32.5 hours</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">Focus Sessions</span>
+                            <span class="text-sm font-medium text-text-primary">12 sessions</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">Meetings</span>
+                            <span class="text-sm font-medium text-text-primary">8 meetings</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">Free Time</span>
+                            <span class="text-sm font-medium text-text-primary">15.5 hours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">Quick Actions</h3>
+                    <div class="space-y-3">
+                        <button class="w-full text-left p-3 bg-primary-50 border border-primary-200 rounded-lg hover:bg-primary-100 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <div>
+                                    <p class="text-sm font-medium text-primary">Start Focus Session</p>
+                                    <p class="text-xs text-primary-600">Begin your next scheduled focus block</p>
+                                </div>
+                            </div>
+                        </button>
+                        
+                        <button class="w-full text-left p-3 bg-secondary-50 border border-secondary-200 rounded-lg hover:bg-secondary-100 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <div>
+                                    <p class="text-sm font-medium text-secondary">Add Recurring Event</p>
+                                    <p class="text-xs text-secondary-600">Set up repeating schedule items</p>
+                                </div>
+                            </div>
+                        </button>
+                        
+                        <button class="w-full text-left p-3 bg-accent-50 border border-accent-200 rounded-lg hover:bg-accent-100 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <div>
+                                    <p class="text-sm font-medium text-accent">Import Calendar</p>
+                                    <p class="text-xs text-accent-600">Sync with Google, Outlook, or Apple</p>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Productivity Insights -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">Productivity Insights</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-text-secondary">Schedule Adherence</span>
+                                <span class="text-text-primary font-medium">89%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 89%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-text-secondary">Focus Time Ratio</span>
+                                <span class="text-text-primary font-medium">67%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 67%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-text-secondary">Break Optimization</span>
+                                <span class="text-text-primary font-medium">78%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-gray-200 px-4 py-2">
+        <div class="flex justify-around">
+            <a href="dashboard.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v4m8-4v4"></path>
+                </svg>
+                <span class="text-xs mt-1">Dashboard</span>
+            </a>
+            <a href="analytics.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                <span class="text-xs mt-1">Analytics</span>
+            </a>
+            <a href="focus_sessions.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span class="text-xs mt-1">Focus</span>
+            </a>
+            <a href="schedule.html" class="flex flex-col items-center py-2 text-primary">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-xs mt-1">Schedule</span>
+            </a>
+            <a href="settings.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="text-xs mt-1">Settings</span>
+            </a>
+        </div>
+    </nav>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/tracker.js"></script>
+<script type="module" src="js/listeners.js"></script>
+<script type="module" src="js/app-init.js"></script>
+
+</body>
+</html>
