@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - DeepSync</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-primary mr-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 12C8 8.68629 10.6863 6 14 6H18C21.3137 6 24 8.68629 24 12V20C24 23.3137 21.3137 26 18 26H14C10.6863 26 8 23.3137 8 20V12Z" fill="currentColor" opacity="0.2"/>
+                        <path d="M16 8C12.6863 8 10 10.6863 10 14V18C10 21.3137 12.6863 24 16 24C19.3137 24 22 21.3137 22 18V14C22 10.6863 19.3137 8 16 8Z" fill="currentColor"/>
+                        <path d="M14 12H18M14 16H18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-xl font-bold text-text-primary">DeepSync</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+                    <a href="analytics.html" class="text-text-secondary hover:text-primary transition-colors">Analytics</a>
+                    <a href="focus_sessions.html" class="text-text-secondary hover:text-primary transition-colors">Focus</a>
+                    <a href="schedule.html" class="text-text-secondary hover:text-primary transition-colors">Schedule</a>
+                    <a href="settings.html" class="text-primary font-medium border-b-2 border-primary pb-1">Settings</a>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"></path>
+                        </svg>
+                    </button>
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-medium">JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-text-primary mb-2">Settings & Preferences</h1>
+            <p class="text-text-secondary">Customize your DeepSync experience and manage your account preferences</p>
+        </div>
+
+        <!-- Settings Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Settings Navigation Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="card sticky top-24">
+                    <nav class="space-y-2">
+                        <button class="w-full text-left px-4 py-3 rounded-lg bg-primary-50 text-primary font-medium border border-primary-200" data-tab="account">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                <span>Account</span>
+                            </div>
+                        </button>
+                        <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-gray-50 transition-colors" data-tab="privacy">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                                <span>Privacy & Security</span>
+                            </div>
+                        </button>
+                        <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-gray-50 transition-colors" data-tab="notifications">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"></path>
+                                </svg>
+                                <span>Notifications</span>
+                            </div>
+                        </button>
+                        <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-gray-50 transition-colors" data-tab="appearance">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                                </svg>
+                                <span>Appearance</span>
+                            </div>
+                        </button>
+                        <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-gray-50 transition-colors" data-tab="integrations">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                                </svg>
+                                <span>Integrations</span>
+                            </div>
+                        </button>
+                        <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-gray-50 transition-colors" data-tab="accessibility">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Accessibility</span>
+                            </div>
+                        </button>
+                        <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-gray-50 transition-colors" data-tab="data">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                                <span>Data & Export</span>
+                            </div>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="lg:col-span-3">
+                <!-- Account Settings Tab -->
+                <div id="account-tab" class="settings-tab">
+                    <div class="card mb-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-text-primary">Account Information</h2>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                <span class="text-sm text-secondary font-medium">Verified</span>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Full Name</label>
+                                <input type="text" value="<span data-user-fullname>Guest</span>" class="input-field">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Email Address</label>
+                                <input type="email" value="jordan.smith@email.com" class="input-field">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Profession</label>
+                                <select class="input-field">
+                                    <option>Software Developer</option>
+                                    <option>Designer</option>
+                                    <option>Student</option>
+                                    <option>Manager</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Time Zone</label>
+                                <select class="input-field">
+                                    <option>UTC-8 (Pacific Time)</option>
+                                    <option>UTC-5 (Eastern Time)</option>
+                                    <option>UTC+0 (GMT)</option>
+                                    <option>UTC+1 (Central European)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-end mt-6">
+                            <button class="btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <!-- Profile Picture -->
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-text-primary mb-4">Profile Picture</h3>
+                        <div class="flex items-center space-x-6">
+                            <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center">
+                                <span class="text-white text-2xl font-medium">JS</span>
+                            </div>
+                            <div>
+                                <button class="btn-secondary mb-2">Upload New Photo</button>
+                                <p class="text-sm text-text-secondary">JPG, PNG or GIF. Max size 2MB.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Tab -->
+                <div id="privacy-tab" class="settings-tab hidden">
+                    <div class="card mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary mb-6">Privacy Dashboard</h2>
+                        
+                        <!-- Data Usage Overview -->
+                        <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-lg p-6 mb-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-semibold text-text-primary">Data Usage Summary</h3>
+                                <span class="text-sm text-primary font-medium">Last updated: Nov 4, 2025</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">847</p>
+                                    <p class="text-sm text-text-secondary">Data points collected</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-secondary">0</p>
+                                    <p class="text-sm text-text-secondary">Third-party shares</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-accent">100%</p>
+                                    <p class="text-sm text-text-secondary">Data encrypted</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Controls -->
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-text-primary">Usage Analytics</h4>
+                                    <p class="text-sm text-text-secondary">Allow DeepSync to analyze your usage patterns for insights</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-text-primary">Crash Reports</h4>
+                                    <p class="text-sm text-text-secondary">Send anonymous crash reports to help improve DeepSync</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-text-primary">Marketing Communications</h4>
+                                    <p class="text-sm text-text-secondary">Receive updates about new features and productivity tips</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-text-primary mb-6">Security Settings</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Two-Factor Authentication -->
+                            <div class="flex items-center justify-between p-4 border border-secondary-200 rounded-lg bg-secondary-50">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Two-Factor Authentication</h4>
+                                        <p class="text-sm text-secondary">Enabled • Authenticator App</p>
+                                    </div>
+                                </div>
+                                <button class="text-secondary hover:text-secondary-700 font-medium">Manage</button>
+                            </div>
+
+                            <!-- Session Management -->
+                            <div>
+                                <h4 class="font-medium text-text-primary mb-3">Active Sessions</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                                        <div class="flex items-center space-x-3">
+                                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                            </svg>
+                                            <div>
+                                                <p class="font-medium text-text-primary">MacBook Pro • Chrome</p>
+                                                <p class="text-sm text-text-secondary">Current session • San Francisco, CA</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-sm text-secondary font-medium">Active</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                                        <div class="flex items-center space-x-3">
+                                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                            </svg>
+                                            <div>
+                                                <p class="font-medium text-text-primary">iPhone 14 • Safari</p>
+                                                <p class="text-sm text-text-secondary">2 hours ago • San Francisco, CA</p>
+                                            </div>
+                                        </div>
+                                        <button class="text-error hover:text-red-700 font-medium">Revoke</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div id="notifications-tab" class="settings-tab hidden">
+                    <div class="card mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary mb-6">Notification Preferences</h2>
+                        
+                        <!-- Smart Notifications -->
+                        <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-lg p-6 mb-6">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Smart Notifications</h3>
+                            </div>
+                            <p class="text-sm text-text-secondary mb-4">
+                                AI-powered notifications that learn your patterns and send reminders at optimal times.
+                            </p>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                            </label>
+                        </div>
+
+                        <!-- Notification Categories -->
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-4">Focus & Productivity</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Focus Session Reminders</h4>
+                                            <p class="text-sm text-text-secondary">Get notified when it's time for your scheduled focus sessions</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Break Reminders</h4>
+                                            <p class="text-sm text-text-secondary">Gentle reminders to take breaks during long work sessions</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Screen Time Alerts</h4>
+                                            <p class="text-sm text-text-secondary">Notifications when you exceed your daily screen time goals</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-4">Progress & Achievements</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Weekly Progress Reports</h4>
+                                            <p class="text-sm text-text-secondary">Summary of your digital wellness progress every Sunday</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Goal Achievements</h4>
+                                            <p class="text-sm text-text-secondary">Celebrate when you reach your productivity milestones</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notification Schedule -->
+                        <div class="mt-8">
+                            <h3 class="font-semibold text-text-primary mb-4">Quiet Hours</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Start Time</label>
+                                    <input type="time" value="22:00" class="input-field">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">End Time</label>
+                                    <input type="time" value="08:00" class="input-field">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Appearance Tab -->
+                <div id="appearance-tab" class="settings-tab hidden">
+                    <div class="card mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary mb-6">Appearance & Theme</h2>
+                        
+                        <!-- Theme Selection -->
+                        <div class="mb-8">
+                            <h3 class="font-semibold text-text-primary mb-4">Theme</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="border-2 border-primary rounded-lg p-4 cursor-pointer">
+                                    <div class="w-full h-20 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg mb-3 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="font-medium text-text-primary text-center">Light</p>
+                                    <p class="text-sm text-text-secondary text-center">Clean and bright</p>
+                                </div>
+                                
+                                <div class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors">
+                                    <div class="w-full h-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg mb-3 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="font-medium text-text-primary text-center">Dark</p>
+                                    <p class="text-sm text-text-secondary text-center">Easy on the eyes</p>
+                                </div>
+                                
+                                <div class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors">
+                                    <div class="w-full h-20 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-800 rounded-lg mb-3 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="font-medium text-text-primary text-center">Auto</p>
+                                    <p class="text-sm text-text-secondary text-center">Follows system</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accent Color -->
+                        <div class="mb-8">
+                            <h3 class="font-semibold text-text-primary mb-4">Accent Color</h3>
+                            <div class="flex space-x-3">
+                                <div class="w-10 h-10 bg-primary rounded-full border-4 border-primary-200 cursor-pointer"></div>
+                                <div class="w-10 h-10 bg-secondary rounded-full border-2 border-gray-200 cursor-pointer hover:border-secondary-200"></div>
+                                <div class="w-10 h-10 bg-accent rounded-full border-2 border-gray-200 cursor-pointer hover:border-accent-200"></div>
+                                <div class="w-10 h-10 bg-orange-500 rounded-full border-2 border-gray-200 cursor-pointer hover:border-orange-200"></div>
+                                <div class="w-10 h-10 bg-pink-500 rounded-full border-2 border-gray-200 cursor-pointer hover:border-pink-200"></div>
+                                <div class="w-10 h-10 bg-indigo-500 rounded-full border-2 border-gray-200 cursor-pointer hover:border-indigo-200"></div>
+                            </div>
+                        </div>
+
+                        <!-- Display Options -->
+                        <div>
+                            <h3 class="font-semibold text-text-primary mb-4">Display Options</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Compact Mode</h4>
+                                        <p class="text-sm text-text-secondary">Show more content by reducing spacing</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                    </label>
+                                </div>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Animations</h4>
+                                        <p class="text-sm text-text-secondary">Enable smooth transitions and micro-interactions</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integrations Tab -->
+                <div id="integrations-tab" class="settings-tab hidden">
+                    <div class="card mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary mb-6">Connected Apps & Services</h2>
+                        
+                        <!-- Calendar Integration -->
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 border border-secondary-200 rounded-lg bg-secondary-50">
+                                <div class="flex items-center space-x-4">
+                                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_190ba2ef4-1762230447265.png" 
+                                         alt="Google Calendar integration icon" 
+                                         class="w-10 h-10 rounded-lg object-cover"
+                                         onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Google Calendar</h4>
+                                        <p class="text-sm text-secondary">Connected • Syncing events</p>
+                                    </div>
+                                </div>
+                                <button class="text-secondary hover:text-secondary-700 font-medium">Manage</button>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_11c5bda8b-1762230447459.png" 
+                                         alt="Slack integration icon" 
+                                         class="w-10 h-10 rounded-lg object-cover"
+                                         onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Slack</h4>
+                                        <p class="text-sm text-text-secondary">Not connected</p>
+                                    </div>
+                                </div>
+                                <button class="btn-secondary">Connect</button>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_14c82ed08-1762230445456.png" 
+                                         alt="Notion integration icon" 
+                                         class="w-10 h-10 rounded-lg object-cover"
+                                         onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Notion</h4>
+                                        <p class="text-sm text-text-secondary">Not connected</p>
+                                    </div>
+                                </div>
+                                <button class="btn-secondary">Connect</button>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1ed738eec-1762230446254.png" 
+                                         alt="Trello integration icon" 
+                                         class="w-10 h-10 rounded-lg object-cover"
+                                         onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Trello</h4>
+                                        <p class="text-sm text-text-secondary">Not connected</p>
+                                    </div>
+                                </div>
+                                <button class="btn-secondary">Connect</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Device Sync -->
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-text-primary mb-6">Device Synchronization</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 border border-primary-200 rounded-lg bg-primary-50">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">MacBook Pro</h4>
+                                        <p class="text-sm text-primary">Primary device • Last sync: 2 min ago</p>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-primary font-medium">Active</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">iPhone 14</h4>
+                                        <p class="text-sm text-text-secondary">Last sync: 1 hour ago</p>
+                                    </div>
+                                </div>
+                                <button class="text-primary hover:text-primary-700 font-medium">Sync Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessibility Tab -->
+                <div id="accessibility-tab" class="settings-tab hidden">
+                    <div class="card">
+                        <h2 class="text-xl font-semibold text-text-primary mb-6">Accessibility Options</h2>
+                        
+                        <div class="space-y-8">
+                            <!-- Visual Accessibility -->
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-4">Visual</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Font Size</label>
+                                        <select class="input-field">
+                                            <option>Small</option>
+                                            <option selected>Medium (Default)</option>
+                                            <option>Large</option>
+                                            <option>Extra Large</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">High Contrast Mode</h4>
+                                            <p class="text-sm text-text-secondary">Increase contrast for better visibility</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Reduce Motion</h4>
+                                            <p class="text-sm text-text-secondary">Minimize animations and transitions</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Keyboard Navigation -->
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-4">Keyboard & Navigation</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Keyboard Navigation</h4>
+                                            <p class="text-sm text-text-secondary">Navigate using Tab and arrow keys</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Focus Indicators</h4>
+                                            <p class="text-sm text-text-secondary">Show clear focus outlines on interactive elements</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Screen Reader -->
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-4">Screen Reader</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Enhanced Descriptions</h4>
+                                            <p class="text-sm text-text-secondary">Provide detailed descriptions for charts and images</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-text-primary">Skip Navigation Links</h4>
+                                            <p class="text-sm text-text-secondary">Add skip links for faster navigation</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data & Export Tab -->
+                <div id="data-tab" class="settings-tab hidden">
+                    <div class="card mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary mb-6">Data Management</h2>
+                        
+                        <!-- Data Export -->
+                        <div class="mb-8">
+                            <h3 class="font-semibold text-text-primary mb-4">Export Your Data</h3>
+                            <p class="text-text-secondary mb-4">Download a copy of your DeepSync data including usage statistics, focus sessions, and preferences.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <button class="flex items-center justify-center space-x-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    <span class="font-medium text-text-primary">Export as JSON</span>
+                                </button>
+                                
+                                <button class="flex items-center justify-center space-x-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    <span class="font-medium text-text-primary">Export as CSV</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Data Retention -->
+                        <div class="mb-8">
+                            <h3 class="font-semibold text-text-primary mb-4">Data Retention</h3>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-text-primary">Usage Data</span>
+                                    <span class="text-sm text-text-secondary">Keep for 2 years</span>
+                                </div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-text-primary">Focus Sessions</span>
+                                    <span class="text-sm text-text-secondary">Keep for 1 year</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium text-text-primary">Account Activity</span>
+                                    <span class="text-sm text-text-secondary">Keep for 90 days</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Storage Usage -->
+                        <div class="mb-8">
+                            <h3 class="font-semibold text-text-primary mb-4">Storage Usage</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-text-secondary">Usage Analytics</span>
+                                    <span class="font-medium text-text-primary">2.3 MB</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 23%"></div>
+                                </div>
+                                <div class="flex justify-between text-sm text-text-secondary">
+                                    <span>2.3 MB used</span>
+                                    <span>10 MB available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Deletion -->
+                    <div class="card border-error-200 bg-red-50">
+                        <h3 class="text-lg font-semibold text-error mb-4">Danger Zone</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-medium text-text-primary mb-2">Clear All Data</h4>
+                                <p class="text-sm text-text-secondary mb-3">Permanently delete all your usage data, focus sessions, and preferences. This action cannot be undone.</p>
+                                <button class="px-4 py-2 border border-error text-error rounded-lg hover:bg-error hover:text-white transition-colors">
+                                    Clear All Data
+                                </button>
+                            </div>
+                            
+                            <div class="border-t border-error-200 pt-4">
+                                <h4 class="font-medium text-text-primary mb-2">Delete Account</h4>
+                                <p class="text-sm text-text-secondary mb-3">Permanently delete your DeepSync account and all associated data. This action cannot be undone.</p>
+                                <button class="px-4 py-2 bg-error text-white rounded-lg hover:bg-red-700 transition-colors">
+                                    Delete Account
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Signals Footer -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+            <div class="flex flex-wrap items-center justify-center space-x-8 text-sm text-text-secondary">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <span>SSL Encrypted</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <span>GDPR Compliant</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>SOC 2 Certified</span>
+                </div>
+            </div>
+            <p class="text-center text-xs text-text-secondary mt-4">
+                © 2025 DeepSync. All Rights Reserved. Your privacy and security are our top priorities.
+            </p>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-gray-200 px-4 py-2">
+        <div class="flex justify-around">
+            <a href="dashboard.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                </svg>
+                <span class="text-xs mt-1">Dashboard</span>
+            </a>
+            <a href="analytics.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                <span class="text-xs mt-1">Analytics</span>
+            </a>
+            <a href="focus_sessions.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span class="text-xs mt-1">Focus</span>
+            </a>
+            <a href="schedule.html" class="flex flex-col items-center py-2 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <span class="text-xs mt-1">Schedule</span>
+            </a>
+            <a href="settings.html" class="flex flex-col items-center py-2 text-primary">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-xs mt-1">Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('[data-tab]');
+            const tabContents = document.querySelectorAll('.settings-tab');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active state from all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary-50', 'text-primary', 'border-primary-200');
+                        btn.classList.add('text-text-secondary', 'hover:bg-gray-50');
+                    });
+                    
+                    // Add active state to clicked button
+                    this.classList.add('bg-primary-50', 'text-primary', 'border-primary-200');
+                    this.classList.remove('text-text-secondary', 'hover:bg-gray-50');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show target tab content
+                    const targetContent = document.getElementById(targetTab + '-tab');
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/tracker.js"></script>
+<script type="module" src="js/listeners.js"></script>
+<script type="module" src="js/app-init.js"></script>
+
+</body>
+</html>
